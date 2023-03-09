@@ -4,9 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Emobilis</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
   </head>
-  <body>
 
+  <body>
+  <div class="uni">
+      <h1>Apple university </h1>
+  </div>
+  <div class =div1>
+       <h1>STUDENT MANAGEMENT SYSTEM</h1>
+  </div>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-md">
@@ -19,7 +27,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <h2>Create Data</h2>
+                <h2>Create student profile</h2>
                 <br>
 
                 <form action="/insert" method="post">
@@ -39,18 +47,12 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <input type="text" class="form-control  mt-2" placeholder="Enter country" name="country" required>
-
-                    </div>
 
 
                     <div class="form-group">
-                        <input type="text" class="form-control  mt-2" placeholder="Enter city" name="city" required>
+                        <input type="text" class="form-control  mt-2" placeholder="course" name="course" required>
 
                     </div>
-
-
 
 
                     <div class="form-group mt-2">
@@ -63,10 +65,8 @@
 
                     <div class="d-grid gap-2">
 
-                        <button class="btn btn-success mt-2" type="submit">Insert</button>
+                        <button class="btn btn-success mt-2" type="submit">Create</button>
                     </div>
-
-
 
 
 
@@ -81,12 +81,10 @@
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Age</th>
+                        <th scope="col">course</th>
                         <th scope="col">Gender</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">City</th>
-                         <th scope="col">Update</th>
+                        <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
-
 
                       </tr>
                     </thead>
@@ -98,12 +96,10 @@
                         <td>{{d.name}}</td>
                         <td>{{d.email}}</td>
                         <td>{{d.age}}</td>
+                        <td>{{d.course}}</td>
                         <td>{{d.gender}}</td>
-                        <td>{{d.country}}</td>
-                        <td>{{d.city}}</td>
-                        <td><a href="/update/{{d.id}}" type="button" class="btn btn-outline-warning">update</a></td>
+                        <td><a href="/update/{{d.id}}" type="button" class="btn btn-outline-warning">Edit</a></td>
                         <td><a href="/delete/{{d.id}}" type="button" class="btn btn-outline-danger">Delete</a></td>
-
                       </tr>
                     {% endfor %}
                     </tbody>
