@@ -10,13 +10,6 @@ def index(request):
     return render(request, "index.html", context)
 
 
-def contact(request):
-    return render(request, "contact.html")
-
-def about(request):
-    return render(request, "about.html")
-
-
 def edit(request):
     return render(request, "edit.html")
 
@@ -33,12 +26,12 @@ def insertData(request):
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
-        age = request.POST.get('age')
         course = request.POST.get('course')
+        year = request.POST.get('year')
         gender = request.POST.get('gender')
 
 
-        query = Student(name=name, email=email, age=age, course=course, gender=gender)
+        query = Student(name=name, email=email, course=course, year=year, gender=gender)
         query.save()
         return redirect("/")
 
@@ -56,18 +49,16 @@ def updateData(request, id):
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
-        age = request.POST.get('age')
-
-        course = request.POST.get('city')
+        course = request.POST.get('course')
+        year = request.POST.get('year')
         gender = request.POST.get('gender')
 
 
         update_info = Student.objects.get(id=id)
         update_info.name = name
         update_info.email = email
-        update_info.age = age
-
         update_info.course = course
+        update_info.year = year
         update_info.gender = gender
 
 

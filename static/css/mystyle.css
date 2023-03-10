@@ -1,13 +1,13 @@
 body{
-    background-color: cornflowerblue;
+    background-color: skyblue;
 
 
 }
 
-.div1{
-    background-color: #1c7430;
-}
 .uni{
-    align-items: center;
+    text-align: center;
     background-color: white;
+}
+.apple{
+    text-align: center;
 }
